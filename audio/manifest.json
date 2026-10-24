@@ -1,0 +1,598 @@
+{
+ "version": 1,
+ "entries": {
+  "ui_tap": {
+   "files": {
+    "m4a": "ui_tap.m4a",
+    "ogg": "ui_tap.ogg"
+   },
+   "kind": "sfx",
+   "duration": 0.14,
+   "loop": false,
+   "volume": 0.45,
+   "pitchVar": 0.04,
+   "minGapMs": 50,
+   "note": "Tiny dry wooden tick, a token set on an oak table. 0.14 s."
+  },
+  "unit_select": {
+   "files": {
+    "m4a": "unit_select.m4a",
+    "ogg": "unit_select.ogg"
+   },
+   "kind": "sfx",
+   "duration": 0.45,
+   "loop": false,
+   "volume": 0.55,
+   "pitchVar": 0.04,
+   "minGapMs": 60,
+   "note": "Small brass buckle clink with a soft leather creak: picking up a toy soldier."
+  },
+  "invalid": {
+   "files": {
+    "m4a": "invalid.m4a",
+    "ogg": "invalid.ogg"
+   },
+   "kind": "sfx",
+   "duration": 0.4,
+   "loop": false,
+   "volume": 0.6,
+   "pitchVar": 0.02,
+   "note": "Dull, low double knock on a closed wooden chest. Not a buzzer."
+  },
+  "sheet_open": {
+   "files": {
+    "m4a": "sheet_open.m4a",
+    "ogg": "sheet_open.ogg"
+   },
+   "kind": "sfx",
+   "duration": 0.8,
+   "loop": false,
+   "volume": 0.5,
+   "pitchVar": 0.03,
+   "minGapMs": 120,
+   "note": "Crisp rustle of a parchment map being unrolled."
+  },
+  "sheet_close": {
+   "files": {
+    "m4a": "sheet_close.m4a",
+    "ogg": "sheet_close.ogg"
+   },
+   "kind": "sfx",
+   "duration": 0.6,
+   "loop": false,
+   "volume": 0.5,
+   "pitchVar": 0.03,
+   "minGapMs": 120,
+   "note": "Soft fold-and-slide of a parchment sheet. Raw take was very quiet (+29 dB of gain)."
+  },
+  "page_turn": {
+   "files": {
+    "m4a": "page_turn.m4a",
+    "ogg": "page_turn.ogg"
+   },
+   "kind": "sfx",
+   "duration": 0.67,
+   "loop": false,
+   "volume": 0.55,
+   "pitchVar": 0.04,
+   "minGapMs": 120,
+   "note": "One page of a heavy leather-bound book flipping."
+  },
+  "quill_scratch": {
+   "files": {
+    "m4a": "quill_scratch.m4a",
+    "ogg": "quill_scratch.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.6,
+   "loop": false,
+   "volume": 0.6,
+   "pitchVar": 0.03,
+   "maxVoices": 1,
+   "note": "Quill scratching a short line on parchment (for chat Send)."
+  },
+  "coins": {
+   "files": {
+    "m4a": "coins.m4a",
+    "ogg": "coins.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.0,
+   "loop": false,
+   "volume": 0.6,
+   "pitchVar": 0.05,
+   "note": "A few gold coins dropped on a wooden table, bright clinks settling."
+  },
+  "letter_seal": {
+   "files": {
+    "m4a": "letter_seal.m4a",
+    "ogg": "letter_seal.ogg"
+   },
+   "kind": "sfx",
+   "duration": 0.9039,
+   "loop": false,
+   "volume": 0.7,
+   "pitchVar": 0.03,
+   "maxVoices": 1,
+   "note": "Wax seal pressed, then a folded letter slid across a desk."
+  },
+  "rival_turn": {
+   "files": {
+    "m4a": "rival_turn.m4a",
+    "ogg": "rival_turn.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.0,
+   "loop": false,
+   "volume": 0.55,
+   "pitchVar": 0.02,
+   "maxVoices": 1,
+   "note": "Three soft ticks of a wooden pendulum clock while a rival considers."
+  },
+  "end_turn": {
+   "files": {
+    "m4a": "end_turn.m4a",
+    "ogg": "end_turn.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.7542,
+   "loop": false,
+   "volume": 0.7,
+   "maxVoices": 1,
+   "note": "Ship's brass bell rung twice, clear ring-out."
+  },
+  "footsteps_grass": {
+   "files": {
+    "m4a": "footsteps_grass.m4a",
+    "ogg": "footsteps_grass.ogg"
+   },
+   "kind": "sfx",
+   "duration": 0.9797,
+   "loop": false,
+   "volume": 0.55,
+   "pitchVar": 0.05,
+   "minGapMs": 120,
+   "maxVoices": 2,
+   "note": "Three or four quick boot steps on soft grass."
+  },
+  "horse_gallop": {
+   "files": {
+    "m4a": "horse_gallop.m4a",
+    "ogg": "horse_gallop.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.6,
+   "loop": false,
+   "volume": 0.6,
+   "pitchVar": 0.05,
+   "minGapMs": 150,
+   "maxVoices": 2,
+   "note": "Single horse galloping past on hard dirt, light harness jingle."
+  },
+  "ship_move": {
+   "files": {
+    "m4a": "ship_move.m4a",
+    "ogg": "ship_move.ogg"
+   },
+   "kind": "sfx",
+   "duration": 2.14,
+   "loop": false,
+   "volume": 0.6,
+   "pitchVar": 0.04,
+   "minGapMs": 300,
+   "maxVoices": 2,
+   "note": "Wooden ship at sea: timbers creaking, waves along the hull."
+  },
+  "embark": {
+   "files": {
+    "m4a": "embark.m4a",
+    "ogg": "embark.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.19,
+   "loop": false,
+   "volume": 0.6,
+   "pitchVar": 0.05,
+   "maxVoices": 2,
+   "note": "Rowing boat pushed into the water, splash and oar knocks."
+  },
+  "unit_recruit": {
+   "files": {
+    "m4a": "unit_recruit.m4a",
+    "ogg": "unit_recruit.ogg"
+   },
+   "kind": "sfx",
+   "duration": 0.57,
+   "loop": false,
+   "volume": 0.7,
+   "pitchVar": 0.02,
+   "note": "One snare-drum flam and boots stamping to attention."
+  },
+  "musket_volley": {
+   "files": {
+    "m4a": "musket_volley.m4a",
+    "ogg": "musket_volley.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.26,
+   "loop": false,
+   "volume": 0.8,
+   "pitchVar": 0.04,
+   "loud": true,
+   "note": "Several flintlocks firing almost together, short outdoor echo."
+  },
+  "cannon_boom": {
+   "files": {
+    "m4a": "cannon_boom.m4a",
+    "ogg": "cannon_boom.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.97,
+   "loop": false,
+   "volume": 0.85,
+   "pitchVar": 0.03,
+   "loud": true,
+   "note": "Black-powder cannon: deep boom with a rolling tail."
+  },
+  "melee_clash": {
+   "files": {
+    "m4a": "melee_clash.m4a",
+    "ogg": "melee_clash.ogg"
+   },
+   "kind": "sfx",
+   "duration": 0.5564,
+   "loop": false,
+   "volume": 0.8,
+   "pitchVar": 0.05,
+   "note": "Two quick sword clashes with a scuffle of boots."
+  },
+  "unit_dies": {
+   "files": {
+    "m4a": "unit_dies.m4a",
+    "ogg": "unit_dies.ogg"
+   },
+   "kind": "sfx",
+   "duration": 0.41,
+   "loop": false,
+   "volume": 0.7,
+   "pitchVar": 0.04,
+   "note": "Musket and helmet dropping with a soft body-fall thud. Short (0.4 s)."
+  },
+  "city_founded": {
+   "files": {
+    "m4a": "city_founded.m4a",
+    "ogg": "city_founded.ogg"
+   },
+   "kind": "sfx",
+   "duration": 2.26,
+   "loop": false,
+   "volume": 0.85,
+   "maxVoices": 1,
+   "loud": true,
+   "note": "Bright natural-trumpet flourish over a snare roll."
+  },
+  "city_levelup": {
+   "files": {
+    "m4a": "city_levelup.m4a",
+    "ogg": "city_levelup.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.32,
+   "loop": false,
+   "volume": 0.75,
+   "maxVoices": 1,
+   "note": "Handbells and celesta, quick rising three-note sparkle."
+  },
+  "building_done": {
+   "files": {
+    "m4a": "building_done.m4a",
+    "ogg": "building_done.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.74,
+   "loop": false,
+   "volume": 0.75,
+   "maxVoices": 1,
+   "note": "Three hammer blows on wood, then a small bronze bell."
+  },
+  "city_wavering": {
+   "files": {
+    "m4a": "city_wavering.m4a",
+    "ogg": "city_wavering.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.76,
+   "loop": false,
+   "volume": 0.75,
+   "maxVoices": 1,
+   "note": "Uneasy string tremolo wavering between two notes."
+  },
+  "city_flips": {
+   "files": {
+    "m4a": "city_flips.m4a",
+    "ogg": "city_flips.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.49,
+   "loop": false,
+   "volume": 0.8,
+   "maxVoices": 1,
+   "note": "Quick bright harp glissando landing on a clear bell chime."
+  },
+  "siege_begins": {
+   "files": {
+    "m4a": "siege_begins.m4a",
+    "ogg": "siege_begins.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.42,
+   "loop": false,
+   "volume": 0.8,
+   "maxVoices": 1,
+   "loud": true,
+   "note": "Field snare roll crescendo ending on a bass-drum hit."
+  },
+  "capital_captured": {
+   "files": {
+    "m4a": "capital_captured.m4a",
+    "ogg": "capital_captured.ogg"
+   },
+   "kind": "sfx",
+   "duration": 2.16,
+   "loop": false,
+   "volume": 0.9,
+   "maxVoices": 1,
+   "loud": true,
+   "note": "Timpani strikes, cymbal crash and a swelling low brass chord."
+  },
+  "discovery": {
+   "files": {
+    "m4a": "discovery.m4a",
+    "ogg": "discovery.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.5,
+   "loop": false,
+   "volume": 0.8,
+   "maxVoices": 1,
+   "note": "Harpsichord flourish rising to a bright major chord."
+  },
+  "wonder_revealed": {
+   "files": {
+    "m4a": "wonder_revealed.m4a",
+    "ogg": "wonder_revealed.ogg"
+   },
+   "kind": "sfx",
+   "duration": 2.56,
+   "loop": false,
+   "volume": 0.85,
+   "maxVoices": 1,
+   "note": "Soft choir 'ahh' and shimmering strings swelling into a luminous chord."
+  },
+  "legend_found": {
+   "files": {
+    "m4a": "legend_found.m4a",
+    "ogg": "legend_found.ogg"
+   },
+   "kind": "sfx",
+   "duration": 2.38,
+   "loop": false,
+   "volume": 0.9,
+   "maxVoices": 1,
+   "loud": true,
+   "note": "Harp glissando, ringing bells and choir: the biggest positive sting."
+  },
+  "rumour_setback": {
+   "files": {
+    "m4a": "rumour_setback.m4a",
+    "ogg": "rumour_setback.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.6,
+   "loop": false,
+   "volume": 0.8,
+   "maxVoices": 1,
+   "note": "Low string stab and muffled timpani, dark minor."
+  },
+  "fog_lift": {
+   "files": {
+    "m4a": "fog_lift.m4a",
+    "ogg": "fog_lift.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.36,
+   "loop": false,
+   "volume": 0.5,
+   "pitchVar": 0.04,
+   "maxVoices": 1,
+   "note": "Soft airy whoosh of wind, mist clearing. Raw take was very quiet (+24 dB)."
+  },
+  "envoy_influence": {
+   "files": {
+    "m4a": "envoy_influence.m4a",
+    "ogg": "envoy_influence.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.88,
+   "loop": false,
+   "volume": 0.7,
+   "maxVoices": 1,
+   "note": "Soft wordless choir 'ooh' chord with a gentle harp glissando."
+  },
+  "tech_discovered": {
+   "files": {
+    "m4a": "tech_discovered.m4a",
+    "ogg": "tech_discovered.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.36,
+   "loop": false,
+   "volume": 0.75,
+   "maxVoices": 1,
+   "note": "Heavy book closing, then one warm bell tone."
+  },
+  "war_declared": {
+   "files": {
+    "m4a": "war_declared.m4a",
+    "ogg": "war_declared.ogg"
+   },
+   "kind": "sfx",
+   "duration": 2.2,
+   "loop": false,
+   "volume": 0.9,
+   "maxVoices": 1,
+   "loud": true,
+   "note": "Heavy war drums pounding a slow, ominous rhythm."
+  },
+  "peace_signed": {
+   "files": {
+    "m4a": "peace_signed.m4a",
+    "ogg": "peace_signed.ogg"
+   },
+   "kind": "sfx",
+   "duration": 2.56,
+   "loop": false,
+   "volume": 0.8,
+   "maxVoices": 1,
+   "note": "Gentle church bells tolling softly in the distance."
+  },
+  "raid_horn": {
+   "files": {
+    "m4a": "raid_horn.m4a",
+    "ogg": "raid_horn.ogg"
+   },
+   "kind": "sfx",
+   "duration": 1.76,
+   "loop": false,
+   "volume": 0.8,
+   "maxVoices": 1,
+   "loud": true,
+   "note": "Low animal horn blown once across a valley."
+  },
+  "ascendancy_warning": {
+   "files": {
+    "m4a": "ascendancy_warning.m4a",
+    "ogg": "ascendancy_warning.ogg"
+   },
+   "kind": "sfx",
+   "duration": 2.56,
+   "loop": false,
+   "volume": 0.85,
+   "maxVoices": 1,
+   "note": "One deep bronze bell toll with a long ring-out (also the knell when a power falls)."
+  },
+  "victory": {
+   "files": {
+    "m4a": "victory.m4a",
+    "ogg": "victory.ogg"
+   },
+   "kind": "sfx",
+   "duration": 2.36,
+   "loop": false,
+   "volume": 0.9,
+   "maxVoices": 1,
+   "loud": true,
+   "note": "Natural trumpets and timpani with strings, bright major cadence."
+  },
+  "defeat": {
+   "files": {
+    "m4a": "defeat.m4a",
+    "ogg": "defeat.ogg"
+   },
+   "kind": "sfx",
+   "duration": 2.69,
+   "loop": false,
+   "volume": 0.9,
+   "maxVoices": 1,
+   "loud": true,
+   "note": "Slow descending strings in a minor key, ending on a low held note."
+  },
+  "amb_sea": {
+   "files": {
+    "m4a": "amb_sea.m4a",
+    "ogg": "amb_sea.ogg"
+   },
+   "kind": "ambient",
+   "duration": 20.5,
+   "loop": true,
+   "volume": 0.8,
+   "loopStart": 1.0,
+   "loopEnd": 20.0,
+   "note": "Calm open sea: waves lapping a hull, distant gulls, light wind. 19 s seamless loop."
+  },
+  "amb_forest": {
+   "files": {
+    "m4a": "amb_forest.m4a",
+    "ogg": "amb_forest.ogg"
+   },
+   "kind": "ambient",
+   "duration": 20.5,
+   "loop": true,
+   "volume": 0.8,
+   "loopStart": 1.0,
+   "loopEnd": 20.0,
+   "note": "Temperate forest: birdsong, leaves in a breeze, distant stream. 19 s seamless loop."
+  },
+  "mus_title": {
+   "files": {
+    "m4a": "mus_title.m4a",
+    "ogg": "mus_title.ogg"
+   },
+   "kind": "music",
+   "duration": 90.8449,
+   "loop": true,
+   "volume": 1.0,
+   "loopStart": 0,
+   "loopEnd": 90.8449,
+   "note": "Lute and baroque guitar open, a recorder brings in a hopeful sea-going tune, strings join and it builds to a stately full statement, then settles. 89 s, ends and restarts after a 2 s breath. (ElevenLabs music_v2_5)"
+  },
+  "mus_explore": {
+   "files": {
+    "m4a": "mus_explore.m4a",
+    "ogg": "mus_explore.ogg"
+   },
+   "kind": "music",
+   "duration": 129.4628,
+   "loop": true,
+   "volume": 1.0,
+   "loopStart": 4.87619,
+   "loopEnd": 128.96283,
+   "note": "Calm pastoral loop: fingerpicked lute, recorder, viola da gamba drone, light harpsichord and pizzicato. 4.9 s intro, then a 124 s seamless loop. (music_v2_5)"
+  },
+  "mus_war": {
+   "files": {
+    "m4a": "mus_war.m4a",
+    "ogg": "mus_war.ogg"
+   },
+   "kind": "music",
+   "duration": 94.1828,
+   "loop": true,
+   "volume": 0.95,
+   "loopStart": 14.90721,
+   "loopEnd": 93.68283,
+   "note": "Tense minor-key loop: low string ostinato, harpsichord rhythm, field snare and timpani, an oboe line. 14.9 s intro, then a 79 s seamless loop. (music_v2_5)"
+  },
+  "mus_victory": {
+   "files": {
+    "m4a": "mus_victory.m4a",
+    "ogg": "mus_victory.ogg"
+   },
+   "kind": "music",
+   "duration": 29.7103,
+   "loop": false,
+   "volume": 0.95,
+   "note": "30 s triumphant processional: natural trumpets, timpani, strings, harpsichord, ends on a strong cadence. (music_v2_5)"
+  },
+  "mus_defeat": {
+   "files": {
+    "m4a": "mus_defeat.m4a",
+    "ogg": "mus_defeat.ogg"
+   },
+   "kind": "music",
+   "duration": 16.4838,
+   "loop": false,
+   "volume": 0.95,
+   "note": "16 s melancholy piece: slow viola da gamba over soft lute chords, ends quietly. (music_v1)"
+  }
+ }
+}

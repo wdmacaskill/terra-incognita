@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#f1e4c3">
+<meta name="robots" content="noindex, nofollow">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Terra Incognita">
+<title>Terra Incognita</title>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" sizes="64x64" href="icons/favicon-64.png">
+<link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IM+Fell+English:ital@0;1&family=IM+Fell+English+SC&display=swap">
+<style>
+  /* One parchment sheet on the dark desk, as in the game. */
+  :root {
+    --desk: #3b2717; --paper: #f1e4c3; --paper-2: #e4cf9f; --paper-hi: #fbf2da;
+    --ink: #3a2615; --ink-soft: #5b4029; --red: #a8341f; --green: #5c7a3a; --green-dark: #3f5827;
+    --serif: 'IM Fell English', 'Iowan Old Style', 'Palatino Linotype', Palatino, Georgia, serif;
+    --serif-sc: 'IM Fell English SC', 'IM Fell English', 'Iowan Old Style', Palatino, Georgia, serif;
+    color-scheme: light;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; margin: 0; }
+  body {
+    background: radial-gradient(120% 90% at 50% 40%, #4a3220 0%, var(--desk) 70%);
+    color: var(--ink); font-family: var(--serif);
+    display: grid; place-items: center;
+    padding: max(20px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(20px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    -webkit-text-size-adjust: 100%;
+  }
+  main {
+    width: min(100%, 25rem);
+    background: radial-gradient(110% 80% at 50% 30%, var(--paper-hi), var(--paper) 55%, var(--paper-2));
+    border-radius: 4px; padding: 2rem 1.6rem 1.6rem;
+    box-shadow: inset 0 0 0 3px #f3e7c9e6, inset 0 0 0 4px #5d422947, inset 0 0 28px #825a2838, 0 14px 36px #0c0601a0;
+    display: grid; gap: 1.1rem; text-align: center;
+  }
+  .rose { width: 5.5rem; height: 5.5rem; margin: 0 auto; display: block; }
+  h1 { font: 2.1rem/1.05 var(--serif-sc); margin: 0; letter-spacing: .01em; text-wrap: balance; }
+  .lede { margin: -.3rem 0 0; font-style: italic; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.35; text-wrap: balance; }
+  form { display: grid; gap: .85rem; text-align: left; }
+  form[hidden] { display: none; }
+  label.field { font: .95rem var(--serif-sc); letter-spacing: .06em; display: grid; gap: .35rem; }
+  .pw { display: flex; gap: .4rem; }
+  input[type=password], input[type=text] {
+    flex: 1; min-width: 0; font: 1.1rem var(--serif); color: var(--ink);
+    padding: .65rem .75rem; border: 1px solid #5d4229; border-radius: 3px;
+    background: #fbf5e4; box-shadow: inset 0 1px 3px #3a261530;
+  }
+  input:focus-visible, button:focus-visible { outline: 2px solid var(--red); outline-offset: 2px; }
+  .show { font: .9rem var(--serif-sc); background: transparent; border: 1px solid #5d422980; border-radius: 3px; color: var(--ink-soft); padding: 0 .7rem; cursor: pointer; }
+  .remember { display: flex; align-items: center; gap: .55rem; font-size: 1.02rem; }
+  .remember input { width: 1.15rem; height: 1.15rem; accent-color: var(--green); margin: 0; }
+  #go {
+    font: 1.25rem var(--serif-sc); letter-spacing: .04em; color: #fbf2da; cursor: pointer;
+    padding: .7rem 1rem; border: 1px solid var(--green-dark); border-radius: 999px;
+    background: linear-gradient(#6d8b47, var(--green) 55%, #4d6930); box-shadow: 0 3px 0 var(--green-dark), 0 6px 14px #1c120840;
+  }
+  #go:disabled { opacity: .6; cursor: progress; }
+  #status { min-height: 2.6em; margin: 0; font-size: 1rem; line-height: 1.3; color: var(--ink-soft); text-align: center; }
+  #status[data-kind=error] { color: var(--red); }
+  .bar { height: 3px; background: #5d422930; border-radius: 2px; overflow: hidden; }
+  .bar i { display: block; height: 100%; width: 0; background: var(--ink-soft); transition: width .2s; }
+  .bar.done { visibility: hidden; }
+  .foot { margin: 0; font-size: .85rem; color: #5b4029b0; font-style: italic; }
+  @media (prefers-reduced-motion: reduce) { .bar i { transition: none; } }
+</style>
+</head>
+<body>
+<main>
+  <div class="rose" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><radialGradient id="gComp" cx=".45" cy=".4" r=".7"><stop offset="0" stop-color="#fbf3dd"/><stop offset="1" stop-color="#e0c999"/></radialGradient></defs><circle cx="50" cy="50" r="48.5" fill="url(#gComp)" stroke="#3a2615" stroke-width="1.4"/><circle cx="50" cy="50" r="45.6" fill="none" stroke="#3a2615" stroke-width=".55"/><circle cx="50" cy="50" r="39.6" fill="none" stroke="#3a2615" stroke-width=".9"/><path d="M57.7 11.2L58.3 8.4M61.5 12.1L62.3 9.4M65.2 13.4L67.5 7.9M68.7 15.1L70 12.6M72 17.1L73.6 14.7M75.1 19.4L76.9 17.2M78 22L82.2 17.8M80.6 24.9L82.8 23.1M82.9 28L85.3 26.4M84.9 31.3L87.4 30M86.6 34.8L92.1 32.5M87.9 38.5L90.6 37.7M88.8 42.3L91.6 41.7M89.4 46.1L92.2 45.8M89.6 50L95.6 50M89.4 53.9L92.2 54.2M88.8 57.7L91.6 58.3M87.9 61.5L90.6 62.3M86.6 65.2L92.1 67.5M84.9 68.7L87.4 70M82.9 72L85.3 73.6M80.6 75.1L82.8 76.9M78 78L82.2 82.2M75.1 80.6L76.9 82.8M72 82.9L73.6 85.3M68.7 84.9L70 87.4M65.2 86.6L67.5 92.1M61.5 87.9L62.3 90.6M57.7 88.8L58.3 91.6M53.9 89.4L54.2 92.2M50 89.6L50 95.6M46.1 89.4L45.8 92.2M42.3 88.8L41.7 91.6M38.5 87.9L37.7 90.6M34.8 86.6L32.5 92.1M31.3 84.9L30 87.4M28 82.9L26.4 85.3M24.9 80.6L23.1 82.8M22 78L17.8 82.2M19.4 75.1L17.2 76.9M17.1 72L14.7 73.6M15.1 68.7L12.6 70M13.4 65.2L7.9 67.5M12.1 61.5L9.4 62.3M11.2 57.7L8.4 58.3M10.6 53.9L7.8 54.2M10.4 50L4.4 50M10.6 46.1L7.8 45.8M11.2 42.3L8.4 41.7M12.1 38.5L9.4 37.7M13.4 34.8L7.9 32.5M15.1 31.3L12.6 30M17.1 28L14.7 26.4M19.4 24.9L17.2 23.1M22 22L17.8 17.8M24.9 19.4L23.1 17.2M28 17.1L26.4 14.7M31.3 15.1L30 12.6M34.8 13.4L32.5 7.9M38.5 12.1L37.7 9.4M42.3 11.2L41.7 8.4" stroke="#3a2615" stroke-width=".6"/><path d="M50 50L60.3 25.1L50 45.4Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L60.3 25.1L53.3 46.7Z" fill="#8a6a46" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L74.9 39.7L53.3 46.7Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L74.9 39.7L54.6 50Z" fill="#8a6a46" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L74.9 60.3L54.6 50Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L74.9 60.3L53.3 53.3Z" fill="#8a6a46" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L60.3 74.9L53.3 53.3Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L60.3 74.9L50 54.6Z" fill="#8a6a46" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L39.7 74.9L50 54.6Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L39.7 74.9L46.7 53.3Z" fill="#8a6a46" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L25.1 60.3L46.7 53.3Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L25.1 60.3L45.4 50Z" fill="#8a6a46" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L25.1 39.7L45.4 50Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L25.1 39.7L46.7 46.7Z" fill="#8a6a46" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L39.7 25.1L46.7 46.7Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L39.7 25.1L50 45.4Z" fill="#8a6a46" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L71.9 28.1L50 43.6Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L71.9 28.1L56.4 50Z" fill="#5f4128" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L71.9 71.9L56.4 50Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L71.9 71.9L50 56.4Z" fill="#5f4128" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L28.1 71.9L50 56.4Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L28.1 71.9L43.6 50Z" fill="#5f4128" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L28.1 28.1L43.6 50Z" fill="#f1e5c6" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L28.1 28.1L50 43.6Z" fill="#5f4128" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L50 11.5L44.6 44.6Z" fill="#f8efd8" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L50 11.5L55.4 44.6Z" fill="#9c3a24" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L88.5 50L55.4 44.6Z" fill="#f8efd8" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L88.5 50L55.4 55.4Z" fill="#3a2615" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L50 88.5L55.4 55.4Z" fill="#f8efd8" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L50 88.5L44.6 55.4Z" fill="#3a2615" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L11.5 50L44.6 55.4Z" fill="#f8efd8" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><path d="M50 50L11.5 50L44.6 44.6Z" fill="#3a2615" stroke="#3a2615" stroke-width=".55" stroke-linejoin="round"/><circle cx="50" cy="50" r="3.6" fill="#f6ecd2" stroke="#3a2615" stroke-width=".8"/><circle cx="50" cy="50" r="1.2" fill="#3a2615"/><text x="50" y="9.6" text-anchor="middle" style="font:bold 9.5px 'IM Fell English SC', Palatino, Georgia, serif" fill="#9c3a24">N</text></svg></div>
+  <h1>Terra Incognita</h1>
+  <p class="lede">A private build. Enter the passphrase to unroll the chart.</p>
+  <form id="unlock" autocomplete="on">
+    <input type="text" name="username" value="Terra Incognita" autocomplete="username" hidden>
+    <label class="field" for="pass">Passphrase
+      <span class="pw">
+        <input id="pass" name="password" type="password" autocomplete="current-password" autocapitalize="none" autocorrect="off" spellcheck="false" enterkeyhint="go" required>
+        <button type="button" class="show" id="show" aria-controls="pass" aria-pressed="false">Show</button>
+      </span>
+    </label>
+    <label class="remember" for="remember"><input id="remember" type="checkbox" checked> Remember on this device</label>
+    <button id="go" type="submit">Unlock</button>
+  </form>
+  <div class="bar" id="bar" aria-hidden="true"><i></i></div>
+  <p id="status" role="status" aria-live="polite"></p>
+  <noscript><p id="noscript">This game needs JavaScript.</p></noscript>
+  <p class="foot">Build b7b163fbbd20</p>
+</main>
+<script>
+(function () {
+  'use strict';
+  var BLOB = 'game.7f9f325f2abf.bin';
+  var SIZE = 5023596;
+  var STORE = 'ti.vault.v1';
+  var $ = function (id) { return document.getElementById(id); };
+  var form = $('unlock'), pass = $('pass'), remember = $('remember'), go = $('go'), status = $('status'), bar = $('bar');
+
+  function say(text, kind) { status.textContent = text; status.dataset.kind = kind || ''; }
+  function busy(on) { go.disabled = on; pass.disabled = on; }
+  function progress(f) { bar.firstElementChild.style.width = Math.round(Math.min(1, f) * 100) + '%'; if (f >= 1) bar.classList.add('done'); }
+
+  var store = {
+    get: function () { try { return JSON.parse(localStorage.getItem(STORE) || 'null'); } catch (e) { return null; } },
+    set: function (v) { try { localStorage.setItem(STORE, JSON.stringify(v)); } catch (e) { /* private mode: just don't remember */ } },
+    clear: function () { try { localStorage.removeItem(STORE); } catch (e) {} }
+  };
+  function toB64(u8) { var s = ''; for (var i = 0; i < u8.length; i += 0x8000) s += String.fromCharCode.apply(null, u8.subarray(i, i + 0x8000)); return btoa(s); }
+  function fromB64(s) { var b = atob(s), u8 = new Uint8Array(b.length); for (var i = 0; i < b.length; i++) u8[i] = b.charCodeAt(i); return u8; }
+  function sameBytes(a, b) { if (a.length !== b.length) return false; for (var i = 0; i < a.length; i++) if (a[i] !== b[i]) return false; return true; }
+
+  $('show').addEventListener('click', function () {
+    var on = pass.type === 'password';
+    pass.type = on ? 'text' : 'password';
+    this.textContent = on ? 'Hide' : 'Show';
+    this.setAttribute('aria-pressed', String(on));
+  });
+
+  if (!(window.crypto && crypto.subtle && window.TextDecoder && window.DecompressionStream)) {
+    busy(true);
+    say('This browser cannot open the game. It needs a secure (https) page and a recent browser: Safari 16.4+, Chrome or Firefox.', 'error');
+    return;
+  }
+  if (/[?&]forget(=|&|$)/.test(location.search)) store.clear();
+
+  // Start downloading the sealed game straight away, with progress.
+  var vault = (async function () {
+    var res = await fetch(BLOB);
+    if (!res.ok) throw Object.assign(new Error('HTTP ' + res.status), { kind: 'net' });
+    var u8;
+    if (res.body && res.body.getReader) {
+      var reader = res.body.getReader(), chunks = [], got = 0;
+      for (;;) {
+        var r = await reader.read();
+        if (r.done) break;
+        chunks.push(r.value); got += r.value.length; progress(got / SIZE);
+      }
+      u8 = new Uint8Array(got);
+      for (var i = 0, o = 0; i < chunks.length; i++) { u8.set(chunks[i], o); o += chunks[i].length; }
+    } else {
+      u8 = new Uint8Array(await res.arrayBuffer());
+    }
+    progress(1);
+    var magic = String.fromCharCode(u8[0], u8[1], u8[2], u8[3]);
+    if (magic !== 'TIE1' || u8.length < 64) throw Object.assign(new Error('bad file'), { kind: 'damaged' });
+    var dv = new DataView(u8.buffer, u8.byteOffset, u8.byteLength);
+    return { gzip: (u8[4] & 1) === 1, iter: dv.getUint32(5), salt: u8.slice(9, 25), iv: u8.slice(25, 37), aad: u8.slice(0, 37), ct: u8.subarray(37) };
+  })();
+  vault.then(registerWorker, function () {});
+
+  function registerWorker() {
+    if (!('serviceWorker' in navigator)) return;
+    navigator.serviceWorker.register('sw.js', { updateViaCache: 'none' }).catch(function () { /* offline play just won't be available */ });
+  }
+
+  async function deriveKey(passphrase, v) {
+    var base = await crypto.subtle.importKey('raw', new TextEncoder().encode(passphrase), 'PBKDF2', false, ['deriveBits']);
+    return new Uint8Array(await crypto.subtle.deriveBits({ name: 'PBKDF2', hash: 'SHA-256', salt: v.salt, iterations: v.iter }, base, 256));
+  }
+
+  async function decrypt(raw, v) {
+    var key = await crypto.subtle.importKey('raw', raw, 'AES-GCM', false, ['decrypt']);
+    var plain;
+    try {
+      plain = await crypto.subtle.decrypt({ name: 'AES-GCM', iv: v.iv, additionalData: v.aad, tagLength: 128 }, key, v.ct);
+    } catch (e) {
+      throw Object.assign(new Error('wrong key'), { kind: 'key' });
+    }
+    try {
+      if (!v.gzip) return new TextDecoder().decode(plain);
+      var stream = new Blob([plain]).stream().pipeThrough(new DecompressionStream('gzip'));
+      return await new Response(stream).text();
+    } catch (e) {
+      throw Object.assign(new Error('gunzip failed'), { kind: 'damaged' });
+    }
+  }
+
+  function openGame(html) {
+    // Replace this page with the decrypted game (same URL, same storage, same service worker).
+    document.open();
+    document.write(html);
+    document.close();
+  }
+
+  function explain(e) {
+    if (e && e.kind === 'key') return 'That passphrase does not open this chart. Check it and try again.';
+    if (e && e.kind === 'damaged') return 'The game download was damaged. Reload the page to try again.';
+    return 'Could not download the game. Check your connection and reload.';
+  }
+
+  form.addEventListener('submit', async function (ev) {
+    ev.preventDefault();
+    var phrase = pass.value.normalize('NFC').trim();
+    if (!phrase) { say('Enter the passphrase first.', 'error'); return; }
+    busy(true);
+    try {
+      say('Fetching the chart…');
+      var v = await vault;
+      say('Checking the passphrase…');
+      var raw = await deriveKey(phrase, v);
+      var html = await decrypt(raw, v);
+      if (remember.checked) store.set({ v: 1, iter: v.iter, salt: toB64(v.salt), key: toB64(raw) });
+      else store.clear();
+      say('Unrolling the chart…');
+      openGame(html);
+    } catch (e) {
+      busy(false);
+      say(explain(e), 'error');
+      if (e && e.kind === 'key') { pass.focus(); pass.select(); }
+    }
+  });
+
+  // A key remembered on this device opens the game without typing.
+  var saved = store.get();
+  if (saved && saved.key && saved.salt) {
+    form.hidden = true;
+    say('Opening with the key saved on this device…');
+    (async function () {
+      try {
+        var v = await vault;
+        if (saved.iter !== v.iter || !sameBytes(fromB64(saved.salt), v.salt)) throw Object.assign(new Error('stale'), { kind: 'key' });
+        openGame(await decrypt(fromB64(saved.key), v));
+      } catch (e) {
+        form.hidden = false;
+        if (e && e.kind === 'key') {
+          store.clear();
+          say('The key saved on this device does not open this build (the passphrase may have changed). Enter the passphrase again.', 'error');
+        } else {
+          say(explain(e), 'error');
+        }
+      }
+    })();
+  } else {
+    vault.catch(function (e) { say(explain(e), 'error'); });
+  }
+})();
+</script>
+</body>
+</html>
